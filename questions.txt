@@ -1,0 +1,19 @@
+Hi iCub! So happy to finally meet you!                      01
+
+What does your name mean?                                   02
+
+How old are you?                                            03
+
+Who are you? describe yourself to me                        04
+
+Do you have any brothers or sisters?                        05
+
+Tell me a little bit about what you can do.                 06
+
+Why was it important to build you similar to a human being? 07
+
+What are the challenges of artificial intelligence?         08
+
+Who is better iCub or R1?                                   09
+
+Thank you iCub for your time                                10
