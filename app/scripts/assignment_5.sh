@@ -154,19 +154,30 @@ cun() {
 
 angry() {
     echo "set all ang" | yarp rpc /icub/face/emotions/in
+    echo "set mou sad" | yarp rpc /icub/face/emotions/in
 }
 
 evil() {
     echo "set all evi" | yarp rpc /icub/face/emotions/in
 }
 urbi_et_orbi () {
-  echo "ctpq time 2.0 off 0 pos (-76.087912 18.0 41.54022 79.989011 -3.194914 -12.263736 5.846154 27.349497 26.770445 25.996681 25.79368 0.4 22.865714 16.888222 8.569178 147.786317)" | yarp rpc /ctpservice/right_arm/rpc
-  echo "ctpq time 2.0 off 0 pos (-44.967033 28.285714 60.441319 89.307692 -11.570818 -38.021978 -15.516484 27.065163 26.882944 26.516972 25.43044 -0.4 21.312919 18.725107 8.94287 146.865506)" | yarp rpc /ctpservice/right_arm/rpc
-  echo "ctpq time 2.0 off 0 pos (-59.56044 16.065934 57.716044 76.120879 -4.65387 -15.252747 -12.615385 27.349497 27.332938 24.956098 26.15692 -0.4 22.089317 16.520845 8.569178 147.325912)" | yarp rpc /ctpservice/right_arm/rpc
-  echo "ctpq time 2.0 off 0 pos (-36.967033 52.197802 26.507253 99.769231 -18.671728 -33.098901 -20.263736 27.349497 27.332938 22.354641 25.43044 0.8 21.701118 17.990353 8.94287 147.325912)" | yarp rpc /ctpservice/right_arm/rpc
+  echo "ctpq time 1.5 off 0 pos (-76.087912 18.0 41.54022 79.989011 -3.194914 -12.263736 5.846154 27.349497 26.770445 25.996681 25.79368 0.4 22.865714 16.888222 8.569178 147.786317)" | yarp rpc /ctpservice/right_arm/rpc
+  echo "ctpq time 1.5 off 0 pos (-44.967033 28.285714 60.441319 89.307692 -11.570818 -38.021978 -15.516484 27.065163 26.882944 26.516972 25.43044 -0.4 21.312919 18.725107 8.94287 146.865506)" | yarp rpc /ctpservice/right_arm/rpc
+  echo "ctpq time 1.5 off 0 pos (-59.56044 16.065934 57.716044 76.120879 -4.65387 -15.252747 -12.615385 27.349497 27.332938 24.956098 26.15692 -0.4 22.089317 16.520845 8.569178 147.325912)" | yarp rpc /ctpservice/right_arm/rpc
+  echo "ctpq time 1.5 off 0 pos (-36.967033 52.197802 26.507253 99.769231 -18.671728 -33.098901 -20.263736 27.349497 27.332938 22.354641 25.43044 0.8 21.701118 17.990353 8.94287 147.325912)" | yarp rpc /ctpservice/right_arm/rpc
   sleep 3.0
   go_home_helper 2.0
 }
+show_fingers(){
+  echo "ctpq time 1.0 off 0 pos (-25.626374 27.142857 4.441319 70.758242 -70.369126 -3.296703 2.769231 42.703492 7.533186 1.022695 0.366873 0.0 -0.038012 -0.011117 4.084873 3.219098)" | yarp rpc /ctpservice/right_arm/rpc
+  echo "ctpq time 1.0 off 0 pos (-25.626374 27.054945 4.529231 71.021978 -70.369126 -3.296703 2.769231 42.419158 7.758183 -0.538179 0.003632 51.2 121.08 -0.011117 4.084873 3.679503)" | yarp rpc /ctpservice/right_arm/rpc
+  echo "ctpq time 1.0 off 0 pos (-25.626374 27.142857 4.441319 70.846154 -70.369126 -3.296703 2.769231 42.419158 7.758183 -0.017888 0.730113 21.2 65.567578 46.278376 143.098326 3.219098)" | yarp rpc /ctpservice/right_arm/rpc
+  echo "ctpq time 1.0 off 0 pos (-25.626374 27.230769 4.353407 70.846154 -70.369126 -3.296703 2.769231 42.703492 7.645685 -0.538179 0.366873 0.0 -0.038012 20.561991 80.318057 144.563481)" | yarp rpc /ctpservice/right_arm/rpc
+  echo "ctpq time 1.0 off 0 pos (-25.626374 27.142857 4.441319 70.758242 -70.369126 -3.296703 2.769231 42.703492 7.533186 1.022695 0.366873 0.0 -0.038012 -0.011117 4.084873 3.219098)" | yarp rpc /ctpservice/right_arm/rpc
+  sleep 1.0
+  go_home_helperR 2.0
+}
+
 wait_till_quiet() {
     sleep 0.3
     isSpeaking=$(echo "stat" | yarp rpc /iSpeak/rpc)
@@ -201,8 +212,8 @@ victory_both() {
 }
 
 point_eye() {
-    echo "ctpq time 2 off 0 pos (-50.0 33.0 45.0 95.0 -58.0 24.0 -11.0 10.0 28.0 11.0 78.0 32.0 15.0 60.0 130.0 170.0)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 3.0 && blink && blink
+    echo "ctpq time 2.0 off 0 pos (-50.0 33.0 45.0 95.0 -58.0 24.0 -11.0 10.0 28.0 11.0 78.0 32.0 15.0 60.0 130.0 170.0)" | yarp rpc /ctpservice/left_arm/rpc
+    #sleep 3.0 && blink && blink
     go_home
 }
 
@@ -231,7 +242,7 @@ point_arms() {
 
     echo "ctpq time 2 off 0 pos (-60.0 32.0 80.0 85.0 -13.0 -3.0 -8.0 15.0 37.0 47.0 52.0 9.0 1.0 42.0 106.0 250.0)" | yarp rpc /ctpservice/right_arm/rpc
     echo "ctpq time 2 off 0 pos (-64.0 43.0 6.0 52.0 -28.0 -0.0 -7.0 15.0 30.0 7.0 0.0 4.0 0.0 2.0 8.0 43.0)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 3.0
+    sleep 4.0
     go_home_helperL 2.0
     go_home_helperR 2.0
 
@@ -332,7 +343,7 @@ show_iit() {
     echo "ctpq time 1.5 off 0 pos (-27.0 64.0 -30.0 62.0 -58.0 -32.0 4.0 17.0 11.0 21.0 29.0 8.0 9.0 5.0 11.0 1.0)" | yarp rpc /ctpservice/right_arm/rpc
     echo "ctpq time 1.5 off 0 pos (-27.0 64.0 -30.0 62.0 -58.0 -32.0 4.0 17.0 11.0 21.0 29.0 8.0 9.0 5.0 11.0 1.0)" | yarp rpc /ctpservice/left_arm/rpc
 
-    sleep 3.0
+    sleep 1.0
     smile
 
     go_home
@@ -416,20 +427,26 @@ sequence_02() { #What does your name mean?
 }
 sequence_03() { #How old are you?
     gaze "look-around 15.0 0.0 5.0"
-    speak "My first project is from two thousand and three. However I was born ten years ago here in Genova from the ideas of the engineers of the Italian Institute of Technology."
+    speak "My first project is from two thousand and three."
+    wait_till_quiet
+    speak "However I was born ten years ago here in Genova from the ideas of the engineers of the Italian Institute of Technology."
     # ten fingers
-    echo "ctpq time 1.0 off 0 pos (-29.934066 15.098901 14.990769 93.351648 55.971316 -34.681319 -9.89011 23.084498 -1.354203 12.469105 -11.620051 0.0 1.126584 -0.011117 0.721644 5.060718)" | yarp rpc /ctpservice/right_arm/rpc
-    echo "ctpq time 1.0 off 0 pos (-30.021978 17.604396 12.003736 85.725275 67.533997 -51.384615 15.164835 15.825604 -2.594225 6.014222 14.851338 2.29419 17.957583 1.46216 12.812219 -2.64493)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 5.0
-    go_home_helper 2.0
+    echo "ctpq time 2.0 off 0 pos (-29.934066 15.098901 14.990769 93.351648 55.971316 -34.681319 -9.89011 23.084498 -1.354203 12.469105 -11.620051 0.0 1.126584 -0.011117 0.721644 5.060718)" | yarp rpc /ctpservice/right_arm/rpc
+    echo "ctpq time 2.0 off 0 pos (-30.021978 17.604396 12.003736 85.725275 67.533997 -51.384615 15.164835 15.825604 -2.594225 6.014222 14.851338 2.29419 17.957583 1.46216 12.812219 -2.64493)" | yarp rpc /ctpservice/left_arm/rpc
+    sleep 4.5
+    show_iit
+    go_home_helper 1.5
     wait_till_quiet
     speak "I am very grateful to them, because they taught me everything I can do now."
+    sleep 1.0
+    show_muscles
     sleep 2.0
     wait_till_quiet
 }
 sequence_04() { #Who are you? describe yourself to me (DoF, emotions, skin)
     gaze "look-around 15.0 0.0 5.0"
     speak "As I told you before I am a robot cub, but I am special because I have a senstive skin and I can feel if someone touch me or tickle me"
+    sleep 4.0
     point_arms
     sleep 0.5 && blink
     wait_till_quiet
@@ -442,21 +459,28 @@ sequence_04() { #Who are you? describe yourself to me (DoF, emotions, skin)
     go_home_helper 1.2
     wait_till_quiet
     speak "I am also able to express emotions. You can see when I am sad!"
+    wait_till_quiet
     sad
+    sleep 3.0
     speak "but don't worry, I am happy the most of the time!"
     smile
     wait_till_quiet
 }
 sequence_05() { #Do you have any brothers or sisters?
     gaze "look-around 15.0 0.0 5.0"
-    speak "Yes! I have 2 brothers here with me, at IIT" #potrei mettere il due a numero con le dita
-    right_two
-    speak "And I have other 30 brothers around the world too"
+    speak "Yes! I have two brothers here with me, at ee ee tee" #potrei mettere il due a numero con le dita
+    victory right_arm
+    go_home_helperR 2.0
     wait_till_quiet
-    speak "Oh, and there also R one. But we do not speak of him, he is the"
     sleep 2.0
+    speak "And I have other thirty brothers around the world too"
+    wait_till_quiet
+    speak "Oh, and there also R one. But we do not speak of him, he is... how could I say it..."
+    wait_till_quiet
+    gaze "look 30.0 0.0 5.0"
     skeptic
-    speak "special cousin"
+    sleep 1.0
+    speak "our special cousin"
     sleep 4.0
     gaze "look-around 15.0 0.0 5.0"
     smile
@@ -464,7 +488,7 @@ sequence_05() { #Do you have any brothers or sisters?
 }
 sequence_06() { #Tell me a little bit about what you can do.
     gaze "look-around 15.0 0.0 5.0"
-    speak "I can do a lot of things and every day I learn something new, thanks to the engineers at IIT"
+    speak "I can do a lot of things and every day I learn something new, thanks to the engineers at ee ee tee"
     #movimento del braccio destro
     speak "For example I can stand on my feet and if someone touches me I will be on balance. I can't walk yet, but I will be able soon!"
     sleep 2.0
@@ -478,7 +502,7 @@ sequence_06() { #Tell me a little bit about what you can do.
     wait_till_quiet
     speak "I can learn new types of objects if you teach me and I will be able to tell you where these objects are around me, soon!"
     smile
-    speak "I am also learning how to do yoga and tai chi!"
+    speak "I am also learning how to do yoga and tai chee!"
     smile && blink
     wait_till_quiet
 }
@@ -486,7 +510,7 @@ sequence_07() { #Why was it important to build you similar to a human being?
     gaze "look-around 15.0 0.0 5.0"
     speak "Because together we can learn how human like creatures learn and behave in a complex environment."
     wait_till_quiet
-    speak "Until some yars ago I didn't even know how to stand up. Now that I've learnt it, engineers are studying why it works with my body and how it can help other poeple."
+    speak "Until some years ago I didn't even know how to stand up. Now that I've learnt it, engineers are studying why it works with my body and how it can help other poeple."
     sleep 5.0
     show_muscles
     speak "Engineers are also studying how I can learn to recognize objects with my two eyes. In the future all this will help building prosthetic systems for vision and locomotion."
@@ -498,19 +522,25 @@ sequence_08() { #What are the challenges of artificial intelligence?
     thinking
     speak "Well this is a difficult question!"
     wait_till_quiet
+    smile
     speak "I think that the challanges of artificial intelligence are here!"
+    sleep 2.0
     point_ear_right
     wait_till_quiet
-    speak "The challange to me is to improve the understanding of the reality around me through vision"
+    speak "The challange to me is to improve the understanding of the reality around me through vision."
+    sleep 3.3
     point_eye
-    wait_till_quiet
-    speak "touching things and exploring the environment"
+    speak "Also touching things and exploring the environment is another way to learn."
+    sleep 1.0
     #braccio destro per mostrare ambiente circostante
     echo "ctpq time 1.0 off 0 pos (-31.0 50.0 -21.0 42.0 -58.5 2.07 -1.7 18.5 40.3 -0.5 -1.8 -0.4 -1.2 -0.01 1.1 1.3)" | yarp rpc /ctpservice/right_arm/rpc
     sleep 2.0
     go_home_helperR 2.0
     wait_till_quiet
     speak "This will enhance my ability to interact with the surroundings and humans."
+    sleep 2.0
+    show_iit
+    smile  
     wait_till_quiet
 }
 sequence_09() { #Who is better iCub or R1?
@@ -518,15 +548,18 @@ sequence_09() { #Who is better iCub or R1?
     speak "You should not ask me, I am a bit biased!"
     wait_till_quiet
     speak "Even if I like r one very much, I am the best! Can r one do this?"
-
+    sleep 3.0
+    show_fingers
     wait_till_quiet
+    blink && smile
 }
 sequence_10() { #Thank you iCub for your time
     gaze "look-around 15.0 0.0 5.0"
     speak "You are welcome! And thank you too!"
     wait_till_quiet
-    speak "Go in peace"
     urbi_et_orbi
+    sleep 1.5
+    speak "Go in peace"
     wait_till_quiet
 }
 
